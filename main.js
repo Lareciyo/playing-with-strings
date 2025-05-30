@@ -73,18 +73,27 @@ function truncate(str){
 //console.log(truncate("The lazy fox jumps over the chicken"))
 //====================Exercise  #8
 
-function emailify(str){
-  let output = "";
-  for(let i = 0; i < str.length; i++){
-    if(str[i] === " "){
-      output += ".";
+function emailify(name){
+  let firstInitial = "";
+  let lastName = "";
+  let spaceFound = false;
+
+  for(let i = 0; i < name.length; i++){
+    let char = name[i].toLowerCase()
+    if(!spaceFound){
+      if(i === 0){
+        firstInitial = char
+      }
+      if(char === " "){
+        spaceFound = true
+      }
     }else{
-      output += str[i].toLowerCase();
+      lastName += char
     }
   }
-  return output + "prsv@gmail.com"
+  return firstInitial + lastName + ".prsvr@gmail.com"
 }
-//console.log(emailify("Lareciyo McNeal"))
+console.log(emailify("Lareciyo McNeal"))
 
 
 //====================Exercise  #9
